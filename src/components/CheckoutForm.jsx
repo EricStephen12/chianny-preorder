@@ -10,6 +10,7 @@ const CheckoutForm = () => {
         phone: '',
         price: '1000',
         quantity: 1,
+        deliveryDate: '',
         proof: null,
         imageUrl: ''
     });
@@ -62,7 +63,7 @@ const CheckoutForm = () => {
 
     const openWhatsApp = () => {
         const BUSINESS_PHONE = import.meta.env.VITE_BUSINESS_PHONE;
-        const message = `Hello Chianny! 🥨\n\nI am ${formData.name} (${formData.phone}).\nI've just placed an order for ${formData.quantity} pack(s) of Chianny Chin Chin (N${formData.price} each).\n\n📄 View Payment Receipt: ${formData.imageUrl}\n\nPlease confirm my order! 🥂`;
+        const message = `Hello Chianny! 🥨\n\nI am ${formData.name} (${formData.phone}).\nI've just placed an order for ${formData.quantity} pack(s) of Chianny Chin Chin (N${formData.price} each).\n🗓 Delivery Date: ${formData.deliveryDate || 'ASAP'}\n\n📄 View Payment Receipt: ${formData.imageUrl}\n\nPlease confirm my order! 🥂`;
         const encodedMessage = encodeURIComponent(message);
         window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodedMessage}`, '_blank');
     };
@@ -143,11 +144,22 @@ const CheckoutForm = () => {
                                 />
                             </div>
 
+                            <div className="input-group">
+                                <label className="input-label">Preferred Delivery Date</label>
+                                <input
+                                    type="date"
+                                    name="deliveryDate"
+                                    className="input-field"
+                                    value={formData.deliveryDate}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+
                             <button
                                 className="btn-primary"
                                 onClick={nextStep}
-                                disabled={!formData.name || !formData.phone}
-                                style={{ opacity: (formData.name && formData.phone) ? 1 : 0.5 }}
+                                disabled={!formData.name || !formData.phone || !formData.deliveryDate}
+                                style={{ opacity: (formData.name && formData.phone && formData.deliveryDate) ? 1 : 0.5 }}
                             >
                                 Advance to Order
                             </button>

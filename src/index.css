@@ -178,6 +178,11 @@ select.input-field option {
   padding: 1rem;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) sepia(100%) saturate(1000%) hue-rotate(10deg);
+  cursor: pointer;
+}
+
 .input-field:focus {
   outline: none;
   border-color: var(--primary);
