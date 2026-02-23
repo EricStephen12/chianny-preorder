@@ -195,7 +195,7 @@ const CheckoutForm = () => {
                                         <>
                                             <Upload size={24} color="var(--primary)" style={{ marginBottom: '1rem' }} />
                                             <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', textTransform: 'uppercase' }}>
-                                                {formData.proof ? formData.proof.name : 'Upload Payment Receipt'}
+                                                {formData.proof ? formData.proof.name : 'upload receipt for confirm payment'}
                                             </p>
                                         </>
                                     )}
