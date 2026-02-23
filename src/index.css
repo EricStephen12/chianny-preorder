@@ -87,6 +87,14 @@ body::after {
   .editorial-image-side {
     display: none;
   }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .form-side {
+    padding: 2rem;
+  }
 }
 
 .editorial-image-side {
@@ -105,10 +113,12 @@ body::after {
 
 .title {
   font-family: var(--font-serif);
-  font-size: 2.8rem;
+  font-size: 1.8rem;
+  /* Reduced from 2.2rem */
   font-weight: 700;
   font-style: italic;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
+  /* Reduced from 0.8rem */
   color: var(--primary);
   line-height: 1.1;
 }
@@ -116,12 +126,14 @@ body::after {
 .subtitle {
   font-family: var(--font-sans);
   color: var(--text-dim);
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  /* Reduced from 0.9rem */
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  /* Reduced from 2.5rem */
   border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-  padding-bottom: 1rem;
+  padding-bottom: 0.8rem;
 }
 
 .input-group {
@@ -148,6 +160,22 @@ body::after {
   font-family: inherit;
   font-size: 1.1rem;
   transition: all 0.4s ease;
+  appearance: none;
+  /* For select elements */
+}
+
+select.input-field {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23C5A059' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 2rem;
+}
+
+select.input-field option {
+  background: var(--background);
+  color: var(--text);
+  padding: 1rem;
 }
 
 .input-field:focus {

@@ -8,6 +8,7 @@ const CheckoutForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
+        price: '1000',
         quantity: 1,
         proof: null,
         imageUrl: ''
@@ -61,7 +62,7 @@ const CheckoutForm = () => {
 
     const openWhatsApp = () => {
         const BUSINESS_PHONE = import.meta.env.VITE_BUSINESS_PHONE;
-        const message = `Hello Chianny! 🥨\n\nI am ${formData.name} (${formData.phone}).\nI've just placed an order for ${formData.quantity} Chianny Chin Chin.\n\n📄 View Payment Receipt: ${formData.imageUrl}\n\nPlease confirm my order! 🥂`;
+        const message = `Hello Chianny! 🥨\n\nI am ${formData.name} (${formData.phone}).\nI've just placed an order for ${formData.quantity} pack(s) of Chianny Chin Chin (N${formData.price} each).\n\n📄 View Payment Receipt: ${formData.imageUrl}\n\nPlease confirm my order! 🥂`;
         const encodedMessage = encodeURIComponent(message);
         window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodedMessage}`, '_blank');
     };
@@ -88,7 +89,7 @@ const CheckoutForm = () => {
                             transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
                         >
                             <h1 className="title">Chianny Chin Chin</h1>
-                            <p className="subtitle">The Golden Crunch of Perfection</p>
+                            <p className="subtitle">The homemade golden crunch of perfection</p>
 
                             <div className="input-group">
                                 <label className="input-label">Connoisseur Name</label>
@@ -112,6 +113,22 @@ const CheckoutForm = () => {
                                     value={formData.phone}
                                     onChange={handleInputChange}
                                 />
+                            </div>
+
+                            <div className="input-group">
+                                <label className="input-label">Pack Selection</label>
+                                <select
+                                    name="price"
+                                    className="input-field"
+                                    value={formData.price}
+                                    onChange={handleInputChange}
+                                >
+                                    <option value="1000">N1,000</option>
+                                    <option value="2500">N2,500</option>
+                                    <option value="3500">N3,500</option>
+                                    <option value="7500">N7,500</option>
+                                    <option value="15000">N15,000</option>
+                                </select>
                             </div>
 
                             <div className="input-group">
